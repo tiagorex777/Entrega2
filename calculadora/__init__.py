@@ -1,14 +1,13 @@
 
 def all_players(names, goals, goals_avoided, assists):
     names = names.split()
-    players = zip(names, goals, goals_avoided, assists)
     players_list = []
-    for player in players:
+    for player in zip(names, goals, goals_avoided, assists):
      players_list.append({
               "name" : player[0],
               "goals" : player[1], 
-             "goals_avoides" : player[2],
-                "assists" : player[3]
+              "goals_avoides" : player[2],
+              "assists" : player[3]
         })
     return players_list 
 

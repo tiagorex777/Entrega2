@@ -1,17 +1,3 @@
-
-def all_players(names, goals, goals_avoided, assists):
-    names = names.split()
-    players_list = []
-    for player in zip(names, goals, goals_avoided, assists):
-     players_list.append({
-              "name" : player[0],
-              "goals" : player[1], 
-              "goals_avoides" : player[2],
-              "assists" : player[3]
-        })
-    return players_list 
-
-    
 def max_scorer(players_list):
     max_goals = 0
     for player in players_list:
@@ -24,14 +10,16 @@ def max_scorer(players_list):
 def most_infuential(players_list):
     max = 0
     for player in players_list:
-       total = player["goals"] * 1.5 + player["goals_avoides"] * 1.25 + player["assists"]
+       total = (player["goals"] * 1.5 + player["goals_avoides"] * 1.25 + player["assists"])/ 3 
        if total > max:
           max = total
           max_influential = player["name"]
     return max, max_influential
 
+
 def prom(players_list):
    return sum([player["goals"]for player in players_list]) / 25
+
 
 def prom_scorer(goals):
    return goals / 25
